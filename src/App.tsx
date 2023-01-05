@@ -1,11 +1,31 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
+import AppRouter from "./components/AppRouter";
+import Navbar from "./components/Navbar";
+import {Layout} from "antd";
+import {useActions} from "./hooks/useActions";
+import {UserTypes} from "./Types/UserTypes";
 
-function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+const App = () => {
+
+    const {fetchUserSuccess, setIsAuth} = useActions();
+
+    useEffect(() => {
+        if (localStorage.getItem("auth")) {
+            fetchUserSuccess({username: localStorage.getItem("username" || "")} as UserTypes);
+            setIsAuth(true);
+        }
+    }, [])
+
+    return (
+        <Layout className="App">
+            <Navbar/>
+            <Layout.Content>
+                <AppRouter/>
+            </Layout.Content>
+
+        </Layout>
+    );
 }
 
 export default App;
