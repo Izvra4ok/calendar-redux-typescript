@@ -1,4 +1,4 @@
-import {AuthActionsEnum, AuthActionTypes, AuthReducerTypes} from "../../Types/AuthTypes";
+import {AuthActionsEnum, AuthActionTypes, AuthReducerTypes} from "../../Types/AuthReducerTypes";
 import {UserTypes} from "../../Types/UserTypes";
 
 const initialState: AuthReducerTypes = {

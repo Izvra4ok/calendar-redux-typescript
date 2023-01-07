@@ -5,7 +5,7 @@ import {RoutesNames} from "../Routes/routes";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {Dispatch} from "redux";
 import {useDispatch} from "react-redux";
-import {AuthActionCreators} from "../Redux/reducers/actionCreators";
+import {AuthActionCreators} from "../Redux/reducers/AuthActionCreators";
 import {useActions} from "../hooks/useActions";
 
 const Navbar: React.FC = () => {

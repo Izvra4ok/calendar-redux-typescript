@@ -4,7 +4,7 @@ import {
     FetchUserSuccessType,
     FetchUserType,
     SetAuthActionType
-} from "../../Types/AuthTypes";
+} from "../../Types/AuthReducerTypes";
 import {UserTypes} from "../../Types/UserTypes";
 import {AppDispatchType} from "../store";
 import axios from "axios";

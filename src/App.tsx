@@ -15,7 +15,7 @@ const App = () => {
             fetchUserSuccess({username: localStorage.getItem("username" || "")} as UserTypes);
             setIsAuth(true);
         }
-    }, [])
+    }, [setIsAuth])
 
     return (
         <Layout className="App">

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Checkbox, Form, Input} from "antd";
-import {AuthActionCreators} from "../Redux/reducers/actionCreators";
+import {AuthActionCreators} from "../Redux/reducers/AuthActionCreators";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {useDispatch} from "react-redux";
 import {Dispatch} from "redux";

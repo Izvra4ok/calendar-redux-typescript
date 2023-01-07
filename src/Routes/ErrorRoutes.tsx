@@ -2,8 +2,9 @@ import React from 'react';
 
 const ErrorRoutes = () => {
     return (
-        <div>
-            <h1 style={{textAlign: "center",color:"red"}}>Something being wrong</h1>
+        <div style={{textAlign: "center", color: "red"}}>
+            <h2 >Something being wrong</h2>
+            <h2>Please, authorize</h2>
         </div>
     );
 };
