@@ -3,12 +3,14 @@ import {EventTypes} from "./EventTypes";
 
 export interface EventStateReducerType {
     guests: UserTypes[],
-    events: EventTypes[]
+    events: EventTypes[],
+    error: string,
 }
 
 export enum EventActionsEnum {
     SET_GUESTS = "SET_GUESTS",
-    SET_EVENTS = "SET_EVENTS"
+    SET_EVENTS = "SET_EVENTS",
+    SET_EVENTS_ERROR = "SET_EVENTS_ERROR",
 }
 
 export interface SetGuestsAction {
@@ -21,5 +23,10 @@ export interface SetEventsAction {
     payload: EventTypes[],
 }
 
+export interface SetEventErrorAction {
+    type: EventActionsEnum.SET_EVENTS_ERROR,
+    payload: string
+}
 
-export type EventReducerActionsType = SetEventsAction | SetGuestsAction
+
+export type EventReducerActionsType = SetEventsAction | SetGuestsAction | SetEventErrorAction

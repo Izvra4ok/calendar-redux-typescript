@@ -1,11 +1,11 @@
-import {Layout, Menu, MenuProps, Row} from 'antd';
-import React from 'react';
+import {Layout, Menu, Row} from 'antd';
+import React, {useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
 import {RoutesNames} from "../Routes/routes";
 import {useTypedSelector} from "../hooks/useTypedSelector";
-import {Dispatch} from "redux";
-import {useDispatch} from "react-redux";
-import {AuthActionCreators} from "../Redux/reducers/AuthActionCreators";
+// import {Dispatch} from "redux";
+// import {useDispatch} from "react-redux";
+// import {AuthActionCreators} from "../Redux/reducers/AuthActionCreators";
 import {useActions} from "../hooks/useActions";
 
 const Navbar: React.FC = () => {
@@ -18,16 +18,23 @@ const Navbar: React.FC = () => {
     const handleLogout = () => {
         // dispatch(AuthActionCreators.logout())
         logout();
+        history(RoutesNames.LOGIN)
     };
+
+    useEffect(()=>{
+
+    },[isAuth])
 
     return (
         <Layout.Header>
             <Row justify="end">
-                {isAuth ?
-                    <>
+                {isAuth && user ?
+                    <div style={{display:"flex"}}>
+                       <span style={{color: "white"}}>Login: {user.username}</span>
                         <Menu onClick={handleLogout}
                               theme="dark"
                               mode="horizontal"
+                              selectable={false}
                               items={new Array(1).fill(null).map((_, index) => {
                                   const key = index + 1;
                                   return {
@@ -35,13 +42,12 @@ const Navbar: React.FC = () => {
                                       label: `Sign out`,
                                   };
                               })}/>
-                        <div style={{color: "white"}}>Login: {user.username}</div>
-                    </>
-                    : <Menu style={{padding: "6px"}} onClick={() => history(RoutesNames.LOGIN)}
+                    </div>
+                    : <Menu style={{padding: "6px"}} selectable={false} onClick={() => history(RoutesNames.LOGIN)}
                             theme="dark"
                             mode="vertical"
                             items={new Array(1).fill(null).map((_, index) => {
-                                const key = index + 1;
+                                const key = index + 2;
                                 return {
                                     key,
                                     label: `Sign in`,

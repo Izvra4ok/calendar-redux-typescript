@@ -3,7 +3,8 @@ import {EventActionsEnum, EventReducerActionsType, EventStateReducerType} from "
 
 const initialState: EventStateReducerType = {
     guests: [],
-    events: []
+    events: [],
+    error: "",
 }
 
 export const eventReducer = (state: EventStateReducerType = initialState, action: EventReducerActionsType): EventStateReducerType => {
@@ -12,6 +13,8 @@ export const eventReducer = (state: EventStateReducerType = initialState, action
             return {...state, guests: action.payload}
         case EventActionsEnum.SET_EVENTS:
             return {...state, events: action.payload}
+        case EventActionsEnum.SET_EVENTS_ERROR:
+            return {...state, error: action.payload}
         default:
             return state
     }

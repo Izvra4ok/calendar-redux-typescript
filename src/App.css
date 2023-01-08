@@ -1,3 +1,26 @@
+
 .h100 {
     height: calc(100vh - 64px);
+}
+
+.event{
+    padding: 0;
+    margin:0;
+    text-align: center;
+    font-size: 12px;
+}
+
+.event:nth-child(even) {
+    color: red;
+}
+
+.event:nth-child(odd) {
+    color: green;
+}
+.event:nth-child(3n+4) {
+    color: blue;
+}
+hr{
+    padding: 0;
+    margin:2px
 }

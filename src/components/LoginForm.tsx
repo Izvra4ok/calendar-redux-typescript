@@ -1,16 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Checkbox, Form, Input} from "antd";
-import {AuthActionCreators} from "../Redux/reducers/AuthActionCreators";
 import {useTypedSelector} from "../hooks/useTypedSelector";
-import {useDispatch} from "react-redux";
-import {Dispatch} from "redux";
 import {useActions} from "../hooks/useActions";
+import {useNavigate} from "react-router-dom";
+import {RoutesNames} from "../Routes/routes";
 
 const LoginForm: React.FC = () => {
 
     const [userName, setUserName] = useState("");
     const [userPassword, setUserPassword] = useState("");
-
+    const history = useNavigate();
     const {login} = useActions();
     // const dispatch: Dispatch<any> = useDispatch
     // ();
@@ -20,7 +19,7 @@ const LoginForm: React.FC = () => {
     const submit = () => {
         // dispatch(AuthActionCreators.login(userName, userPassword))
         login(userName, userPassword)
-
+        history(RoutesNames.EVENT)
     }
 
     useEffect(() => {
@@ -57,7 +56,8 @@ const LoginForm: React.FC = () => {
             </Form.Item>
 
             <Form.Item wrapperCol={{offset: 8, span: 16}}>
-                <Button onClick={submit} type="primary" htmlType="submit" loading={isLoading} disabled={isLoading}>
+                <Button onClick={submit} type="primary" htmlType="submit" unselectable={"on"} loading={isLoading}
+                        disabled={isLoading}>
                     Login
                 </Button>
             </Form.Item>

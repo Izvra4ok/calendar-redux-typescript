@@ -7,7 +7,7 @@ import {
 } from "../../Types/AuthReducerTypes";
 import {UserTypes} from "../../Types/UserTypes";
 import {AppDispatchType} from "../store";
-import axios from "axios";
+import UserService from "../../DAL/api";
 
 export const AuthActionCreators = {
     setIsAuth: (auth: boolean): SetAuthActionType => ({type: AuthActionsEnum.SET_AUTH, payload: auth}),
@@ -22,13 +22,13 @@ export const AuthActionCreators = {
         try {
             dispatch(AuthActionCreators.fetchUserIsLoading(true));
             setTimeout(async () => {
-                const response = await axios.get<UserTypes[]>("../user.json")
+                const response = await UserService.getUser()
                 const mockUser = response.data.find(user => user.username === username && user.password === password)
                 if (mockUser) {
                     localStorage.setItem("auth", "true");
                     localStorage.setItem("username", mockUser.username);
-                    dispatch(AuthActionCreators.setIsAuth(true));
                     dispatch(AuthActionCreators.fetchUserSuccess(mockUser));
+                    dispatch(AuthActionCreators.setIsAuth(true));
                 } else {
                     dispatch(AuthActionCreators.fetchUserError("Incorrect data"));
                     dispatch(AuthActionCreators.fetchUserIsLoading(false));
