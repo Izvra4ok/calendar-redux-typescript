@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/calendar-redux-typescript/static/css/main.03fc8ca8.css",
+    "main.js": "/calendar-redux-typescript/static/js/main.6c18a9a8.js",
+    "index.html": "/calendar-redux-typescript/index.html",
+    "static/media/index.cjs": "/calendar-redux-typescript/static/media/index.bab733886d4c9bd36de5.cjs",
+    "main.03fc8ca8.css.map": "/calendar-redux-typescript/static/css/main.03fc8ca8.css.map",
+    "main.6c18a9a8.js.map": "/calendar-redux-typescript/static/js/main.6c18a9a8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.03fc8ca8.css",
+    "static/js/main.6c18a9a8.js"
+  ]
+}
